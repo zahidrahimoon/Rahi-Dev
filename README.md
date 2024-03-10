@@ -1,4 +1,4 @@
-# InstaGood
+# Rahi Dev
 
 A simple landing page built with React and Material UI that looks like Instagram.
 
@@ -15,8 +15,8 @@ A simple landing page built with React and Material UI that looks like Instagram
 To get started, simply clone the repository and install the dependencies.
 
 ```bash
-git clone https://github.com/yourusername/InstaLandingPage.git
-cd InstaLandingPage
+git clone [https://github.com/yourusername/InstaLandingPage.git](https://github.com/zahidrahimoon/InstaGood.git)
+cd Rahi Dev
 npm install
 ```
 
