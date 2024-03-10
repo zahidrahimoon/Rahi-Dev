@@ -1,73 +1,84 @@
-# Getting Started with Create React App
+# InstaGood
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple landing page built with React and Material UI that looks like Instagram.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Basic components: Navbar ,Sidebar,Feed, Rightbar
+- Material UI components
+- Dark and light theme support
+- Fully responsive design
+- Interactive components
 
-### `npm start`
+## Getting Started
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+To get started, simply clone the repository and install the dependencies.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```bash
+git clone https://github.com/yourusername/InstaLandingPage.git
+cd InstaLandingPage
+npm install
+```
 
-### `npm test`
+## Theme
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The InstaLandingPage supports both dark and light themes. The theme can be changed by clicking the moon icon in the top right corner of the page.
 
-### `npm run build`
+## Responsive Design
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The InstaLandingPage is fully responsive and includes media queries to ensure that it looks great on all devices.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Project Demo
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Check out the project demo [here](https://frolicking-gumption-d1e8e1.netlify.app).
 
-### `npm run eject`
+## Components
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+The project consists of the following components:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **Sidebar**: Contains the theme switcher and social media links.
+- **Feed**: Displays the main content of the landing page.
+- **Rightbar**: Displays additional content or information.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Usage
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+To run the project, use the following command:
 
-## Learn More
+```bash
+npm start
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Code Example
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```jsx
+import React, { useState } from "react";
+import Sidebar from "./components/Sidebar";
+import Feed from "./components/Feed";
+import Rightbar from "./components/Rightbar";
+import Navbar from "./components/Navbar";
+import { Box, Stack, ThemeProvider, createTheme } from "@mui/material";
 
-### Code Splitting
+const App = () => {
+  const [mode, setMode] = useState("dark");
+  const darkTheme = createTheme({
+    palette: {
+      mode: mode,
+    }
+  });
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+  return (
+    <ThemeProvider theme={darkTheme}>
+      <Box bgcolor={"background.default"} color={"text.primary"}>
+        <Navbar />
+        <Stack direction="row" spacing={2} justifyContent="space-between">
+          <Sidebar setMode={setMode} mode={mode}/>
+          <Feed />
+          <Rightbar />
+        </Stack>
+      </Box>
+    </ThemeProvider>
+  );  
+};
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-### Project View 
-  project demo [here](https://frolicking-gumption-d1e8e1.netlify.app)
+export default App;
+```
